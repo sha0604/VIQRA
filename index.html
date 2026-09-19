@@ -1,217 +1,96 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="VIQRA合同会社｜つながりから、新しい価値を。">
-<title>VIQRA｜つながりから、新しい価値を。</title>
-<style>
-:root{
-  --bg:#09090d;
-  --bg2:#101017;
-  --text:#f7f7fb;
-  --muted:#a5a5b5;
-  --line:rgba(255,255,255,.12);
-  --purple:#8b5cf6;
-  --purple2:#c084fc;
-  --max:1120px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-  background:var(--bg);color:var(--text);line-height:1.8;
-}
-a{color:inherit;text-decoration:none}
-.container{width:min(calc(100% - 40px),var(--max));margin:auto}
-header{
-  position:fixed;top:0;left:0;right:0;z-index:20;
-  background:rgba(9,9,13,.72);backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(255,255,255,.08)
-}
-.nav{height:74px;display:flex;align-items:center;justify-content:space-between}
-.logo{
-  font-size:24px;font-weight:800;letter-spacing:.16em;
-  background:linear-gradient(90deg,#a78bfa,#d8b4fe);
-  -webkit-background-clip:text;background-clip:text;color:transparent
-}
-nav{display:flex;gap:30px;font-size:12px;letter-spacing:.14em}
-nav a{color:#d8d8e2;transition:.25s}
-nav a:hover{color:#c4a7ff}
-.menu{display:none;background:none;border:0;color:white;font-size:28px}
-.hero{
-  min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;
-  background:
-    linear-gradient(90deg,rgba(7,7,11,.96) 0%,rgba(7,7,11,.78) 42%,rgba(7,7,11,.28) 100%),
-    url("https://images.unsplash.com/photo-1655393001768-d946c179c60a?auto=format&fit=crop&w=2200&q=85") center/cover;
-}
-.hero:after{
-  content:"";position:absolute;width:520px;height:520px;border-radius:50%;
-  right:-180px;bottom:-240px;
-  background:rgba(139,92,246,.22);filter:blur(90px)
-}
-.hero-inner{position:relative;z-index:2;padding:120px 0 80px}
-.eyebrow{font-size:12px;letter-spacing:.28em;color:#c9b7ff;margin-bottom:22px}
-h1{font-size:clamp(46px,8vw,88px);line-height:1.02;letter-spacing:-.04em;font-weight:800}
-.gradient{background:linear-gradient(90deg,#fff,#c4a7ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{margin-top:28px;color:#c8c8d3;font-size:clamp(16px,2vw,20px);max-width:560px}
-.cta{display:inline-flex;margin-top:38px;padding:14px 24px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.07);font-size:13px;letter-spacing:.12em;transition:.25s}
-.cta:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
-section{padding:110px 0;border-bottom:1px solid var(--line)}
-.section-head{margin-bottom:48px}
-.kicker{font-size:11px;letter-spacing:.24em;color:#bda5ff;margin-bottom:10px}
-h2{font-size:clamp(30px,5vw,48px);line-height:1.2;letter-spacing:-.03em}
-.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:70px}
-.about-text{color:var(--muted);font-size:16px}
-.about-text p+p{margin-top:20px}
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{
-  padding:30px;border:1px solid var(--line);border-radius:22px;
-  background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
-  min-height:220px;transition:.25s
-}
-.card:hover{transform:translateY(-5px);border-color:rgba(192,132,252,.4)}
-.num{font-size:12px;color:#bda5ff;letter-spacing:.15em}
-.card h3{font-size:21px;margin:22px 0 12px}
-.card p{color:var(--muted);font-size:14px}
-.approach{
-  padding:42px;border-radius:28px;
-  background:linear-gradient(120deg,rgba(139,92,246,.18),rgba(255,255,255,.035));
-  border:1px solid rgba(192,132,252,.18)
-}
-.approach p{font-size:clamp(20px,3vw,32px);line-height:1.55;letter-spacing:-.02em}
-.company-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.info{padding:24px 0;border-bottom:1px solid var(--line);display:flex;gap:20px}
-.info dt{width:110px;color:#aaaabc;font-size:13px}.info dd{font-size:14px}
-.contact{
-  text-align:center;padding:130px 0;
-  background:radial-gradient(circle at center,rgba(139,92,246,.13),transparent 55%)
-}
-.contact p{color:var(--muted);margin-top:18px}
-.contact .cta{margin-top:30px}
-footer{padding:30px 0;color:#777787;font-size:11px;letter-spacing:.08em}
-@media(max-width:760px){
-  .container{width:min(calc(100% - 28px),var(--max))}
-  .nav{height:66px}
-  nav{display:none;position:absolute;top:66px;left:0;right:0;padding:22px 28px;background:rgba(9,9,13,.97);flex-direction:column;gap:18px;border-bottom:1px solid var(--line)}
-  nav.open{display:flex}
-  .menu{display:block}
-  .hero{background-position:62% center}
-  .hero-inner{padding-top:110px}
-  .about-grid,.company-grid{grid-template-columns:1fr;gap:32px}
-  .services{grid-template-columns:1fr}
-  section{padding:80px 0}
-  .card{min-height:auto}
-  .approach{padding:28px}
-  .info dt{width:88px;flex-shrink:0}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>合同会社VIQRA | つながりから、新しい価値を。</title>
+  <meta name="description" content="合同会社VIQRA。つながりから、新しい価値を。通信を軸に、人と仕事、人と可能性をつなぐ会社です。">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-  <div class="container nav">
-    <a class="logo" href="#home">VIQRA</a>
-    <nav id="nav">
-      <a href="#about">ABOUT</a>
-      <a href="#service">SERVICE</a>
-      <a href="#approach">APPROACH</a>
-      <a href="#company">COMPANY</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
-    <button class="menu" id="menu" aria-label="メニュー">☰</button>
-  </div>
+<header class="header">
+  <a class="logo" href="#home" aria-label="VIQRA HOME">
+    <span class="logo-mark">V</span><span>VIQRA</span>
+  </a>
+  <button class="menu-btn" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="nav">
+    <a href="#about">ABOUT</a>
+    <a href="#service">BUSINESS</a>
+    <a href="#approach">APPROACH</a>
+    <a href="#company">COMPANY</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
 </header>
 
 <main>
-<section class="hero" id="home">
-  <div class="container hero-inner">
-    <div class="eyebrow">VIQRA LLC.</div>
-    <h1>つながりから、<br><span class="gradient">新しい価値を。</span></h1>
-    <p class="lead">人と人、仕事と可能性。<br>つながりを起点に、これからの価値をつくる。</p>
-    <a class="cta" href="#about">SCROLL TO EXPLORE ↓</a>
+<section id="home" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content reveal">
+    <p class="eyebrow">合同会社 VIQRA</p>
+    <h1>つながりから、<br><em>新しい価値を。</em></h1>
+    <p class="lead">人と人。人と仕事。<br>そのつながりを、次の可能性へ。</p>
+    <a class="button" href="#about">VIEW MORE <span>→</span></a>
   </div>
+  <div class="hero-meta"><span>MIYAZAKI / JAPAN</span><span>EST. 2026</span></div>
 </section>
 
-<section id="about">
-  <div class="container">
-    <div class="section-head">
-      <div class="kicker">ABOUT VIQRA</div>
-      <h2>人を型にはめない。</h2>
-    </div>
-    <div class="about-grid">
-      <div>
-        <p style="font-size:22px;line-height:1.55">一人ひとりの挑戦と、<br>人と人とのつながりを大切に。</p>
-      </div>
-      <div class="about-text">
-        <p>私たちは、誰かを型にはめる会社ではありません。</p>
-        <p>通信の現場でも、新しい事業でも、まだ形になっていないアイデアでも。人がつながることで、新しい価値は生まれると考えています。</p>
-        <p>変化を楽しみながら、必要とされる場所へ。VIQRAは、つながりを力に変えていきます。</p>
-      </div>
+<section id="about" class="section about">
+  <div class="section-head reveal"><span>01</span><p>ABOUT</p></div>
+  <div class="about-grid">
+    <div class="reveal"><h2>人がつながる。<br><em>可能性がひらく。</em></h2></div>
+    <div class="reveal">
+      <p>VIQRAは、人と人とのつながりを大切にしながら、新しい価値を生み出していく会社です。</p>
+      <p>通信の現場で培ってきた経験を軸に、コンサルティングや新しい事業にも挑戦していきます。</p>
     </div>
   </div>
 </section>
 
-<section id="service">
-  <div class="container">
-    <div class="section-head">
-      <div class="kicker">SERVICE</div>
-      <h2>できることを、広げていく。</h2>
-    </div>
-    <div class="services">
-      <article class="card"><div class="num">01</div><h3>通信・インフラ</h3><p>通信サービスに関する販売支援、運営支援、現場改善などを行います。</p></article>
-      <article class="card"><div class="num">02</div><h3>コンサルティング</h3><p>人・現場・仕組みをつなぎ、事業やチームが前に進むための支援を行います。</p></article>
-      <article class="card"><div class="num">03</div><h3>新規事業</h3><p>既存の枠にとらわれず、つながりやアイデアを新しい事業へ育てていきます。</p></article>
-    </div>
+<section id="service" class="section service">
+  <div class="section-head reveal"><span>02</span><p>BUSINESS</p></div>
+  <div class="section-title reveal"><h2>つなぐ力を、<br><em>事業の力へ。</em></h2></div>
+  <div class="cards">
+    <article class="card reveal"><span>01</span><h3>COMMUNICATION</h3><p>通信関連の販売・プロモーション、現場支援、人材育成など、通信の現場を支えます。</p></article>
+    <article class="card reveal"><span>02</span><h3>CONSULTING</h3><p>現場で培った経験を活かし、販売・店舗運営・人材育成などの課題解決をサポートします。</p></article>
+    <article class="card reveal"><span>03</span><h3>NEW BUSINESS</h3><p>人とのつながりを起点に、既存の枠にとらわれない新しい事業を形にしていきます。</p></article>
   </div>
 </section>
 
-<section id="approach">
-  <div class="container">
-    <div class="section-head">
-      <div class="kicker">OUR APPROACH</div>
-      <h2>つながりを、次の一歩へ。</h2>
-    </div>
-    <div class="approach">
-      <p>人と人。<br>企業と人。<br>今とこれから。</p>
-      <p style="margin-top:24px;color:#bdbdca;font-size:15px;line-height:1.8">ひとつの出会いが、次の可能性につながる。<br>VIQRAは、そのきっかけをつくります。</p>
-    </div>
+<section id="approach" class="section approach">
+  <div class="section-head reveal"><span>03</span><p>OUR APPROACH</p></div>
+  <div class="approach-inner reveal">
+    <p class="small">MESSAGE</p>
+    <h2>誰かを、<br><em>型にはめない。</em></h2>
+    <p class="message">私たちは、誰かを型にはめる会社ではありません。<br>
+    一人ひとりの挑戦を尊重し、人と人とのつながりを大切にする。<br><br>
+    通信の現場でも。<br>
+    新しい事業でも。<br>
+    まだ形になっていない夢でも。<br><br>
+    人がつながることで、新しい価値は生まれる。</p>
   </div>
 </section>
 
-<section id="company">
-  <div class="container">
-    <div class="section-head">
-      <div class="kicker">COMPANY</div>
-      <h2>会社情報</h2>
-    </div>
-    <dl>
-      <div class="info"><dt>会社名</dt><dd>VIQRA合同会社</dd></div>
-      <div class="info"><dt>所在地</dt><dd>宮崎県宮崎市</dd></div>
-      <div class="info"><dt>事業内容</dt><dd>通信・インフラ事業 / コンサルティング / 新規事業</dd></div>
-      <div class="info"><dt>代表</dt><dd>Representative</dd></div>
-    </dl>
+<section id="company" class="section company">
+  <div class="section-head reveal"><span>04</span><p>COMPANY</p></div>
+  <div class="company-box reveal">
+    <div class="company-row"><span>会社名</span><strong>合同会社VIQRA</strong></div>
+    <div class="company-row"><span>代表社員</span><strong>モハマザデラテシャヒン</strong></div>
+    <div class="company-row"><span>所在地</span><strong>宮崎県宮崎市</strong></div>
+    <div class="company-row"><span>設立</span><strong>2026年</strong></div>
+    <div class="company-row"><span>事業内容</span><strong>通信関連事業 / コンサルティング / 新規事業</strong></div>
   </div>
 </section>
 
-<section class="contact" id="contact">
-  <div class="container">
-    <div class="kicker">CONTACT</div>
-    <h2>まずは、つながるところから。</h2>
-    <p>事業・協業・ご相談など、お気軽にお問い合わせください。</p>
-    <a class="cta" href="mailto:info@example.com">CONTACT VIQRA →</a>
+<section id="contact" class="section contact">
+  <div class="contact-inner reveal">
+    <p class="eyebrow">CONTACT</p>
+    <h2>さあ、<em>つながろう。</em></h2>
+    <p>VIQRAへのお問い合わせ・ご相談はこちらから。</p>
+    <a class="button" href="mailto:info@viqra.jp">CONTACT US <span>→</span></a>
   </div>
 </section>
 </main>
 
-<footer>
-  <div class="container">© VIQRA LLC. ALL RIGHTS RESERVED.</div>
-</footer>
-
-<script>
-const menu=document.getElementById('menu');
-const nav=document.getElementById('nav');
-menu.addEventListener('click',()=>nav.classList.toggle('open'));
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
-</script>
+<footer><div class="footer-logo">VIQRA</div><p>© 2026 VIQRA LLC. All Rights Reserved.</p></footer>
+<script src="js/main.js"></script>
 </body>
 </html>
